@@ -47,6 +47,7 @@ hooker是一个基于frida实现的逆向工具包。为逆向开发人员提供
     * [e-检测类在内存中是否存在](#e---检测类在内存中是否存在)
     * [s-正则表达式扫描类](#s---正则表达式扫描类)
     * [j-生成指定类的hook脚本](#j---生成指定类的hook脚本)
+    * [k-生成字符串hook脚本](#k---%E7%94%9F%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2hook%E8%84%9A%E6%9C%AC)
 * [hooker高级应用](#hooker高级应用)
     * [radar.dex](#radardex)
     * [脚本的内置函数](#脚本的内置函数)
@@ -58,6 +59,8 @@ hooker是一个基于frida实现的逆向工具包。为逆向开发人员提供
         * [6. getPrettyString(javaObject)](#6-getprettystringjavaobject)
         * [7. getField(javaObject, fieldName)](#7-getfieldjavaobject-fieldname)
         * [8. storeObjectAndLog(javaObject)](#8-storeobjectandlogjavaobject)
+    * [原生ui自动化](#原生ui自动化)
+        * [1. startActivity(activityName)](#1-startactivityactivityname)
     * [远程frida支持](#远程frida支持)
 
 	
