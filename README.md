@@ -61,6 +61,15 @@ hooker是一个基于frida实现的逆向工具包。为逆向开发人员提供
         * [8. storeObjectAndLog(javaObject)](#8-storeobjectandlogjavaobject)
     * [原生ui自动化](#原生ui自动化)
         * [1. startActivity(activityName)](#1-startactivityactivityname)
+        * [2. contextStartActivity(activityName)](#1-startactivityactivityname)
+        * [3. contextStartActivity(activityName)](#1-startactivityactivityname)
+        * [4. home()](#1-startactivityactivityname)
+        * [5. back()](#1-startactivityactivityname)
+        * [6. finishCurrentActivity()](#1-startactivityactivityname)
+        * [7. clickByText(text)](#1-startactivityactivityname)
+        * [8. clickById(id)](#1-startactivityactivityname)
+        * [9. hover(x,y,upStepLength)](#1-startactivityactivityname)
+        * [10. viewTree()](#1-startactivityactivityname)
     * [远程frida支持](#远程frida支持)
 
 	
@@ -470,6 +479,34 @@ intent.putExtra("finder_username", username);
 com.tencent.mm.plugin.finder.g.a aVar = com.tencent.mm.plugin.finder.g.a.pPL;
 com.tencent.mm.plugin.finder.g.a.enterFinderProfileUI(Android.getTopActivity(), intent);
 ```
+
+### 2. contextStartActivity(activityName)
+contextStartActivity与startActivity不同，它会先获取应用的context。然后调用context的startActivity方法。
+
+### 3. topActivityStartActivity(activityName)
+topActivityStartActivity先获取栈顶的Activity实例，然后调用实例的startActivity方法。startActivity就是topActivityStartActivity。
+
+### 4. home()
+模拟点击home按钮
+
+### 5. back()
+模拟点击back按钮
+
+### 6. finishCurrentActivity()
+退出栈顶Activity。原理是先获取栈顶的Activity实例，然后调用其finish()方法来主动结束。
+
+### 7. clickByText(text)
+点击包含text文本的按钮。如果界面上存在多个包含text的按钮会优先选择找到的第一个。
+
+### 8. clickById(id)
+点击指定view id的按钮。你可以用uiautomatorviewer查看viewid，也可以用viewTree()方法输出view的json树来找到你要的元素。uiautomatorviewer在你{AndroidSdk}/tools/bin/路径下。
+
+### 9. hover(x,y,upStepLength)
+滑动屏幕。x,y传数字表示按下坐标，upStepLength的绝对值是步长表示滑动的长度。当upStepLength为正数的时候表示要向上滑动，当upStepLength为负数的时候表示向下滑动。
+
+### 10. viewTree()
+获取json格式的view树。
+
 
 
 ## 远程frida支持
