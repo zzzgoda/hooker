@@ -1,5 +1,5 @@
-//crack by com.ttpc.bidding_hall 3.4.9
-//consumer.ttpc.com.httpmodule.g.t.f:a
+//crack by com.meicai.mall 3.2.1
+//android.security.net.config.NetworkSecurityTrustManager:checkPins
 function loadDexfile(dexfile) {
     Java.perform(function() {
           Java.openClassFile(dexfile).load();
@@ -109,12 +109,12 @@ function sleep(time) {
 var loadedXRadar = false;
 
 function loadXinitDexfile(dexfile) {
-    loadDexfile('/data/user/0/com.ttpc.bidding_hall/xinit/'+dexfile);
+    loadDexfile('/data/user/0/com.meicai.mall/xinit/'+dexfile);
 };
 
 function loadXRadarDexfile() {
     loadedXRadar = true;
-    loadDexfile('/data/user/0/com.ttpc.bidding_hall/radar.dex');
+    loadDexfile('/data/user/0/com.meicai.mall/radar.dex');
 };
 
 function fastTojson(javaObject) {
@@ -145,54 +145,16 @@ function storeObjectAndLog(javaObject) {
 };
 
 
-loadXRadarDexfile();
-loadXinitDexfile("ttpai-patch.dex");
 
-//consumer.ttpc.com.httpmodule.g.t.f:a
+//android.security.net.config.NetworkSecurityTrustManager:checkPins
 Java.perform(function() {
-    var BiddingHallRequestOkHttpCallMocker = Java.use("ttpai.patch.BiddingHallRequestOkHttpCallMocker");
-    var CheckReportRequestOkHttpCallMocker = Java.use("ttpai.patch.CheckReportRequestOkHttpCallMocker");
-    var HistoryDetailRequestOkHttpCallMocker = Java.use("ttpai.patch.HistoryDetailRequestOkHttpCallMocker");
-    var consumer_ttpc_com_httpmodule_g_t_f_clz = Java.use('consumer.ttpc.com.httpmodule.g.t.f');
-    var consumer_ttpc_com_httpmodule_g_t_f_clz_method_a_8339 = consumer_ttpc_com_httpmodule_g_t_f_clz.a.overload('f.j');
-    consumer_ttpc_com_httpmodule_g_t_f_clz_method_a_8339.implementation = function(v0) {
-        try {
-            if (BiddingHallRequestOkHttpCallMocker.loadEnv(this)) {
-                log("BiddingHallRequestOkHttpCallMocker加载环境成功!!!");
-            }
-            if (CheckReportRequestOkHttpCallMocker.loadEnv(this)){
-                log("CheckReportRequestOkHttpCallMocker加载环境成功!!!");
-            }
-            if (HistoryDetailRequestOkHttpCallMocker.loadEnv(this)){
-                log("HistoryDetailRequestOkHttpCallMocker加载环境成功!!!");
-            }
-        } catch (error) {
-            log(error);
-        }
+    var android_security_net_config_NetworkSecurityTrustManager_clz = Java.use('android.security.net.config.NetworkSecurityTrustManager');
+    var android_security_net_config_NetworkSecurityTrustManager_clz_method_checkPins_3034 = android_security_net_config_NetworkSecurityTrustManager_clz.checkPins.overload('java.util.List');
+    android_security_net_config_NetworkSecurityTrustManager_clz_method_checkPins_3034.implementation = function(v0) {
         var executor = this.hashCode();
-        var beatText = 'public void consumer.ttpc.com.httpmodule.g.t.f.a(f.j)';
+        var beatText = 'private void android.security.net.config.NetworkSecurityTrustManager.checkPins(java.util.List) throws java.security.cert.CertificateException';
         var beat = newMethodBeat(beatText, executor);
-        consumer_ttpc_com_httpmodule_g_t_f_clz_method_a_8339.call(this, v0);
-        //printBeat(beat);
+        android_security_net_config_NetworkSecurityTrustManager_clz_method_checkPins_3034.call(this, v0);
+        printBeat(beat);
     };
 });
-
-
-function startXServer() {
-    Java.perform(function(){
-        var XServer = Java.use("ttpai.patch.XServer");
-        XServer.start();
-    });
-}
-
-
-function testRequest(mockerClass) {
-    Java.perform(function(){
-        var myOKHttpCall = Java.use(mockerClass);
-        try {
-            log(myOKHttpCall.test());
-        } catch (error) {
-            log(error);
-        }
-    });
-}
