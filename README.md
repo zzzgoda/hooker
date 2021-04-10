@@ -12,7 +12,7 @@ hooker是一个基于frida实现的逆向工具包。为逆向开发人员提供
 =================
 
 * [hooker和frida、objection有什么不同](#hooker和frida-objection有什么不同)
-* [环境部署](#环境部署)
+* [hooker环境部署](#环境部署)
     * [1. git clone项目](#1-git-clone项目)
     * [2. 安装依赖](#2-安装依赖)
     * [3. 手机连接adb](#3-手机连接adb)
@@ -543,15 +543,6 @@ var author = {
   experience : ["Android应用开发", "网络爬虫", "Android逆向", "JAVA/Go后台开发", "中间件开发"]
 }
 ```
-
-
-# 行业巨佬支持（我不是r0，我只是感谢他帮我推广）
-![3](https://raw.githubusercontent.com/hluwa/strongR-frida-android/main/img/3.png)
-
-# hooker交流专区
-![soul](assets/soul.jpg)
-
-
 
 
 ### End
