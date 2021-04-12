@@ -333,8 +333,11 @@ frida-kill $HOOKER_DRIVER com.ss.android.ugc.aweme
 ***
 
 ### 5. keystore_dump.js
-在https双向认证的情况下，dump客户端证书为p12. 存储位置:/data/user/0/{packagename}/client_keystore_{nowtime}.p12 证书密码: hooker。原理是hook java.security.KeyStore的getPrivateKey和getCertificate方法，因为客户端向服务发送证书必调这个方法。
-![](assets/keystore_dump.png)
+在https双向认证的情况下，dump客户端证书为p12. 存储位置:/data/user/0/{packagename}/client_keystore_{nowtime}.p12 证书密码: hooker。原理是hook java.security.KeyStore的getPrivateKey和getCertificate方法，因为客户端向服务发送证书必调这个方法。下面是某app双向认证dump客户端证书过程
+![](assets/https_bothway_01.png)
+![](assets/https_bothway_02.png)
+![](assets/https_bothway_03.png)
+![](assets/https_bothway_04.png)
 
 ### 6. edit_text.js
 跟踪获取Editview的getText()事件，并获取Editview的真实Class（很重要）。Editview一般绑定Search Action的实现代码，如果你抓取“搜索”接口。那么这个一定可以帮助你定位发送搜索请求的相关代码。多一种办法定位到关键逻辑不好吗？一定要靠分析网络请求吗？条条大路通罗马，不一定非从网络库分析！
@@ -524,8 +527,6 @@ stephen@ubuntu:~/hooker$ cat .hooker_driver
 
 hooker实战应用
 =================
-
-# https双向认证抓包
 
 # ssl_log链路层离线抓包
 
