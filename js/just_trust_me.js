@@ -19,7 +19,7 @@ function loadDexfile(dexfile) {
 var loadedXRadar = false;
 function loadXRadarDexfile() {
     loadedXRadar = true;
-    loadDexfile('/data/user/0/com.meicai.mall/radar.dex');
+    loadDexfile('/data/user/0/com.smile.gifmaker/radar.dex');
 };
 
 
