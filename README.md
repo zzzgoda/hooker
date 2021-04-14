@@ -509,6 +509,7 @@ topActivityStartActivity先获取栈顶的Activity实例，然后调用实例的
 
 ### 10. viewTree()
 获取json格式的view树
+
 ![](assets/android_ui_view_tree2.gif)
 ![](assets/android_ui_view_tree.png)
 此ViewTree结果参考[viewTree.json](com.ss.android.ugc.aweme/viewTree.json "viewTree.json")
