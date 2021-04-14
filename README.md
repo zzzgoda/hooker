@@ -508,7 +508,11 @@ topActivityStartActivity先获取栈顶的Activity实例，然后调用实例的
 滑动屏幕。x,y传数字表示按下坐标，upStepLength的绝对值是步长表示滑动的长度。当upStepLength为正数的时候表示要向上滑动，当upStepLength为负数的时候表示向下滑动。
 
 ### 10. viewTree()
-获取json格式的view树。
+获取json格式的view树
+![](assets/android_ui_view_tree2.gif)
+![](assets/android_ui_view_tree.png)
+此ViewTree结果参考[viewTree.json](com.ss.android.ugc.aweme/viewTree.json "viewTree.json")
+
 
 
 
