@@ -366,7 +366,7 @@ frida-kill $HOOKER_DRIVER com.ss.android.ugc.aweme
 操作ObjectId标识的对象，根据自身分析情况可进行特定的序列化打印、操作对象的私有成员变量。将在高级篇讲解使用步骤。
 
 ### 10. hook_RN.js
-对于动态注册的native函数，我们需要用hook_RN.js来分析。强烈建议keystore_dump.js用spawn模式启动，启动命令为 ./spawn hook_RN.js
+对于动态注册的native函数，我们需要用hook_RN.js来分析。强烈建议hook_RN.js用spawn模式启动，启动命令为 ./spawn hook_RN.js
 ![](assets/hook_RN.gif)
 
 # hooker调试命令行
