@@ -25,9 +25,10 @@ hooker是一个基于frida实现的逆向工具包。为逆向开发人员提供
 * [应用工作目录的命令](#应用工作目录的命令)
     * [1. hooking](#1-hooking)
     * [2. attach](#2-attach)
-    * [3. objection](#3-objection)
-    * [4. xinitdeploy](#4-xinitdeploy)
-    * [5. kill](#5-kill)
+    * [3. spawn](#3-spawn)
+    * [4. objection](#4-objection)
+    * [5. xinitdeploy](#5-xinitdeploy)
+    * [6. kill](#6-kill)
 * [应用工作目录的通杀脚本](#应用工作目录的通杀脚本)
     * [1. url.js](#1-urljs)
     * [2. activity_events.js](#2-activity_eventsjs)
@@ -287,7 +288,17 @@ HOOKER_DRIVER=$(cat ../.hooker_driver)
 frida $HOOKER_DRIVER -l $1 com.ss.android.ugc.aweme
 ```
 
-### 3. objection
+### 3. spawn
+以spawn模式启动脚本。某些方法在应用启动的时候就初始化了，想要hook这些方法就必须以spawn模式启动了。默认是--no-pause，即不需要手动resume恢复应用。如果需要非--no-pause，请手动编辑spawn文件去除。以抖音工作目录为例，spawn实现如下
+
+```shell
+#!/bin/bash
+HOOKER_DRIVER=$(cat ../.hooker_driver)
+frida $HOOKER_DRIVER --no-pause -f com.ss.android.ugc.aweme -l $1
+```
+
+
+### 4. objection
 快捷执行objection调试命令，执行./objection即可。以抖音工作目录为例，objection实现如下
 
 ```shell
@@ -297,12 +308,12 @@ objection -d -g com.ss.android.ugc.aweme explore
 ```
 ![](assets/objection.gif)
 
-### 4. xinitdeploy
+### 5. xinitdeploy
 xinitdeploy是用于部署资源的命令，它会把xinit目录下所放的文件拷贝到手机上/data/user/0/{packageName}/xinit/。同时保证资源文件的user/group权限和app进程是同一个临时用户。
 ![](assets/xinitdeploy.gif)
 ![](assets/xinit_files.png)
 
-### 5. kill
+### 6. kill
 如果你想重启app，先执行./kill会杀掉应用的主进程和所有子进程。作为一个Andrioid应用开发工程师出身，然后干到后台，接着干到爬虫，现在干到逆向的我必须告诉你：每个手机厂商都会实现一个自己的“内存清理”工具效果不一定好，且可能app本身也有保活机制。所以不建议你通过操作手机滑动进程列表来杀——有可能杀不干净。以抖音工作目录为例，kill实现如下:
 
 ```shell
@@ -333,7 +344,7 @@ frida-kill $HOOKER_DRIVER com.ss.android.ugc.aweme
 ***
 
 ### 5. keystore_dump.js
-在https双向认证的情况下，dump客户端证书为p12. 存储位置:/data/user/0/{packagename}/client_keystore_{nowtime}.p12 证书密码: hooker。原理是hook java.security.KeyStore的getPrivateKey和getCertificate方法，因为客户端向服务发送证书必调这个方法。下面是某app双向认证dump客户端证书过程
+在https双向认证的情况下，dump客户端证书为p12。存储位置:/data/user/0/{packagename}/client_keystore_{nowtime}.p12 证书密码: hooker。原理是hook java.security.KeyStore的getPrivateKey和getCertificate方法，因为客户端向服务发送证书必调这个方法。强烈建议keystore_dump.js用spawn模式启动，启动命令为 ./spawn keystore_dump.js 。下面是某app双向认证dump客户端证书过程
 ![](assets/https_bothway_01.png)
 ![](assets/https_bothway_02.png)
 ![](assets/https_bothway_03.png)
