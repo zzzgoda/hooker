@@ -39,6 +39,7 @@ hooker是一个基于frida实现的逆向工具包。为逆向开发人员提供
     * [7. text_view.js](#7-text_viewjs)
     * [8. ssl_log.js](#8-ssl_logjs)
     * [9. object_store.js](#9-object_storejs)
+    * [10. hook_RN.js](#10-hook_RNjs)
 * [hooker调试命令行](#hooker调试命令行)
     * [a-打印Activity栈](#a---打印activity栈)
     * [b-打印Service栈](#b---打印Service栈)
@@ -363,6 +364,10 @@ frida-kill $HOOKER_DRIVER com.ss.android.ugc.aweme
 
 ### 9. object_store.js
 操作ObjectId标识的对象，根据自身分析情况可进行特定的序列化打印、操作对象的私有成员变量。将在高级篇讲解使用步骤。
+
+### 10. hook_RN.js
+对于动态注册的native函数，我们需要用hook_RN.js来分析。强烈建议keystore_dump.js用spawn模式启动，启动命令为 ./spawn hook_RN.js
+![](assets/hook_RN.gif)
 
 # hooker调试命令行
 

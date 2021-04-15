@@ -86,6 +86,8 @@ ssl_log_jscode = readJs("ssl_log.js")
 
 just_trust_me_jscode = readJs("just_trust_me.js")
 
+hook_RN_jscode = readJs("hook_RN.js")
+
 def getPythonLaucher():
     pythonLaucher = os.environ.get("__PYVENV_LAUNCHER__")
     if not pythonLaucher:
