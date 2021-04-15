@@ -236,8 +236,8 @@ m: Discovering so module.
 ex: Exit to the upper layer. eg:'ex'
 : 
 ```
-	提示1: 第一次调试你的应用时hooker将在当前目录生成以进程Identifier命名的应用专有工作目录，并初始化生成一些你可能会用到的通杀脚本。
-	提示2: 成功attach一个应用时，命令将pause在等待输入调试指令的阶段。pause状态下使用命令进行高级调试请直接跳到[hooker调试命令行](#hooker调试命令行)
+提示1: 第一次调试你的应用时hooker将在当前目录生成以进程Identifier命名的应用专有工作目录，并初始化生成一些你可能会用到的通杀脚本。
+提示2: 成功attach一个应用时，命令将pause在等待输入调试指令的阶段。pause状态下使用命令进行高级调试请直接跳到[hooker调试命令行](#hooker调试命令行)
 ![](assets/hooker-attach.gif)
 
 
